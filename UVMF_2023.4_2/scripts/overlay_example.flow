@@ -1,0 +1,46 @@
+# Use a copy of this file to provide a flow setup overlay to the uvmf_bcr.py script.
+# Point to the file in the following ways (precedence order is highest to lowest)
+#  - Use the --flow_file_overlays switch (can point to multiple files using colon-separated strings)
+#  - Use the $UVMF_BCR_FLOW_FILE_OVERLAY environment variable (can point to multiple files using colon-separated strings)
+#  - Place this file in your uvmf_bcr.py invocation directory and name it 'bcr_overlay.flow'
+
+# Set environment variables specific to any BCR invocation that uses this overlay file
+options:
+  env_vars:
+    MY_ENV_VAR_1: value_of_env_var_1
+    MY_ENV_VAR_2: value_of_env_var_2
+
+# Default test is example_derived_test with a seed of 1234 (for all flows that extend from 'base', which is pretty much everything)
+flows:
+  base:
+    variables:
+      test: example_derived_test
+      seed: 1234
+      ext_cmd2: 'ls'
+    variable_descriptions:
+      ext_cmd2: "Example variable used to identify external command to execute.  Can be overridden from the command line."
+    steps:
+      # Additional step used for command line execution.
+      # Any number of these setps can be added to accommodate external commands as needed.
+      # These steps can be placed in default_steps within overlay or provided on command line using --steps switch to uvmf_bcr.py.
+      run_ext_cmd1:
+        variables:
+           # This variable defines the command to be executed
+           # The run_external_cmd command module uses ext_cmd and ext_cmd_extra variables. If these variables are overridden on the command line, only the last step listed will receive the override.  It is recommended to either provide the command line in the overlay, as shown with the 'date' command below, or add a base variable that is unique to the step as shown below using the ext_cmd2 base variable in the run_ext_cmd2 step.
+           ext_cmd: 'date'
+           # This variable defines extra arguments to be applied to the command
+           ext_cmd_extra: ''
+        # Command package must remain as mentor_commands to identify location of command module.
+        command_package: 'mentor_commands'
+        # Command module must remain as run_external_cmd.  This processes and applies the ext_cmd and ext_cmd_extra variables.
+        command_module: 'run_external_cmd'
+      run_ext_cmd2:
+        variables:
+           # ext_cmd2 variable is used as an example of a variable that can be overridden on the uvmf_bcr.py command line.
+           # Use of this base variable is used to avoid the issue where the command line override of ext_cmd is only applied to the last step listed.
+           ext_cmd: '${ext_cmd2}'
+           ext_cmd_extra: ''
+        command_package: 'mentor_commands'
+        command_module: 'run_external_cmd'
+
+

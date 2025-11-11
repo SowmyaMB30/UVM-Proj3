@@ -1,0 +1,45 @@
+{% set fname = "{{bench_location}}/{{name}}/tb/testbench/hvl_top.sv" %}
+{% extends "base_template.TMPL" %}
+
+{% block description %}
+//
+//----------------------------------------------------------------------
+//                                          
+// DESCRIPTION: This module loads the test package and starts the UVM phases.
+//
+//----------------------------------------------------------------------
+{% endblock %}
+
+{% block contents %}
+
+module hvl_top;
+
+import uvm_pkg::*;
+import {{name}}_tests_pkg::*;
+
+  // pragma uvmf custom module_item_additional begin
+  // pragma uvmf custom module_item_additional end
+
+{% for qvip_hdl in qvip_hdl_modules %}
+{% if qvip_hdl.agent_types|length == 2 or qvip_hdl.agent_types[0] == 'icvip' %}
+
+  hvl_{{qvip_hdl.envPkg}} 
+      #(
+        .HDL_BFM_SCOPE("hdl_top.{{qvip_hdl.unique_id_with_underscores}}qvip_hdl"),
+        .HVL_AGENT_SCOPE("{{qvip_hdl.unique_id}}")
+       ) {{qvip_hdl.unique_id_with_underscores}}qvip_hvl();
+{% endif %}
+
+{% endfor %}
+
+  initial begin
+    $timeformat(-9,3,"ns",5);
+    run_test();
+  end
+
+endmodule
+
+// pragma uvmf custom external begin
+// pragma uvmf custom external end
+
+{% endblock %}
