@@ -1,0 +1,157 @@
+uvmf:
+  interfaces:
+    execute_in:
+      clock: clock
+      reset: reset
+      reset_assertion_level: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_typedefs:
+      - name: opcode_t
+        type: |
+          enum bit [3:0] {
+            ADD = 4'b0001,
+            AND = 4'b0101,
+            BR  = 4'b0000,
+            JMP = 4'b1100,
+            LD  = 4'b0010,
+            LDI = 4'b1010,
+            LDR = 4'b0110,
+            LEA = 4'b1110,
+            NOT = 4'b1001,
+            ST  = 4'b0011,
+            STI = 4'b1011,
+            STR = 4'b0111
+          }
+      - name: op_string
+        type: |
+          string op_string[opcode_t] = '{
+            ADD: "ADD",
+            AND: "AND",
+            BR: "BR",
+            JMP: "JMP",
+            LD: "LD",
+            LDI: "LDI",
+            LDR: "LDR",
+            LEA: "LEA",
+            NOT: "NOT",
+            ST: "ST",
+            STI: "STI",
+            STR: "STR"
+          };
+      ports:
+      - dir: output
+        name: enable_execute
+        reset_value: '''b0'
+        width: '1'
+      - dir: output
+        name: E_control
+        reset_value: '''b0'
+        width: '6'
+      - dir: output
+        name: Mem_Control_in
+        reset_value: '''b0'
+        width: '1'
+      - dir: output
+        name: W_Control_in
+        reset_value: '''b0'
+        width: '2'
+      - dir: output
+        name: bypass_alu_1
+        reset_value: '''b0'
+        width: '1'
+      - dir: output
+        name: bypass_alu_2
+        reset_value: '''b0'
+        width: '1'
+      - dir: output
+        name: bypass_mem_1
+        reset_value: '''b0'
+        width: '1'
+      - dir: output
+        name: bypass_mem_2
+        reset_value: '''b0'
+        width: '1'
+      - dir: output
+        name: IR
+        reset_value: '''b0'
+        width: '16'
+      - dir: output
+        name: npc_in
+        reset_value: '''b0'
+        width: '16'
+      - dir: output
+        name: Mem_Bypass_Val
+        reset_value: '''b0'
+        width: '16'
+      - dir: output
+        name: VSR1
+        reset_value: '''b0'
+        width: '16'
+      - dir: output
+        name: VSR2
+        reset_value: '''b0'
+        width: '16'
+      - dir: output
+        name: Mem_bypass_val
+        reset_value: '''b0'
+        width: '16'
+      transaction_constraints: []
+      transaction_vars:
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'False'
+        name: enable_execute
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: E_control
+        type: bit [5:0]
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: Mem_Control_in
+        type: bit
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: W_Control_in
+        type: bit [1:0]
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: bypass_alu_1
+        type: bypass_val_t
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: bypass_alu_2
+        type: bypass_val_t
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: bypass_mem_1
+        type: bypass_val_t
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: bypass_mem_2
+        type: bypass_val_t
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: VSR1
+        type: source_value_t
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: VSR2
+        type: source_value_t
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: Mem_Bypass_Val
+        type: bypass_val_t
+
+      

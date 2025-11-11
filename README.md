@@ -141,7 +141,7 @@
 ---
 
 ## Notes
-- Use python3.9 *$UVMF_HOME/scripts/yaml2uvmf.py xyz.yaml*
+- Use *python3.9 $UVMF_HOME/scripts/yaml2uvmf.py --dest_dir . verification_ip/interface_packages/execute_in_pkg/yaml/execute_in_interface.yaml* to generate files at exact the directory
 - All environments must include predictor and scoreboard components
 - Instruction coverage can be placed in:
   - `decode_in` agent coverage component, OR
