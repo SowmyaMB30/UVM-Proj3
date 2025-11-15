@@ -1,0 +1,17 @@
+uvmf:
+  benches:
+    lc3:
+      active_passive:
+      - bfm_name: execute_env_exe_in_agent
+        value: PASSIVE
+      - bfm_name: execute_env_exe_out_agent
+        value: PASSIVE
+      clock_half_period: 5ns
+      clock_phase_offset: 9ns
+      existing_library_component: 'False'
+      interface_params: []
+      parameters: []
+      reset_assertion_level: 'True'
+      reset_duration: 20ns
+      top_env: lc3
+      use_dpi_link: 'False'
