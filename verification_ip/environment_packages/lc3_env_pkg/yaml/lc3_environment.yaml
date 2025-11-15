@@ -1,0 +1,31 @@
+uvmf:
+  environments:
+    lc3:
+      agents: []
+      # - initiator_responder: RESPONDER
+      #   name: imem_resp
+      #   type: imem
+      # - initiator_responder: RESPONDER
+      #   name: dmem_resp
+      #   type: dmem
+      analysis_components: []
+      analysis_exports: []
+      analysis_ports: []
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'False'
+      hvl_pkg_parameters: []
+      imports:
+      - name: execute_env_pkg
+      - name: lc3_prediction_pkg
+      non_uvmf_components: []
+      parameters: []
+      qvip_memory_agents: []
+      scoreboards: []
+      subenvs:
+
+      - name: execute_env
+        parameters: []
+        reg_block_instance_name: execute_env_rm
+        type: execute
+      tlm_connections: []

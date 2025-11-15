@@ -17,7 +17,7 @@ uvmf:
       analysis_ports: []
       config_constraints: []
       config_vars: []
-      existing_library_component: 'True'
+      existing_library_component: 'False'
       hvl_pkg_parameters: []
       imports:
       - name: lc3_prediction_pkg
