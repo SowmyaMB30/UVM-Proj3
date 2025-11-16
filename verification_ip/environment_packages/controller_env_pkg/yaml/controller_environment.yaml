@@ -1,0 +1,40 @@
+uvmf:
+  environments:
+    controller:
+      agents:
+      - initiator_responder: INITIATOR
+        name: agent_in
+        type: controller_in
+      - initiator_responder: INITIATOR
+        name: agent_out
+        type: controller_out
+      analysis_components:
+      - name: predictor
+        parameters: []
+        type: controller_predictor
+      analysis_exports: []
+      analysis_ports: []
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      hvl_pkg_parameters: []
+      imports:
+      - name: lc3_prediction_pkg
+      non_uvmf_components: []
+      parameters: []
+      qvip_memory_agents: []
+      scoreboards:
+      - name: scoreboard
+        sb_type: uvmf_in_order_scoreboard
+        trans_type: controller_out_transaction
+      subenvs: []
+      tlm_connections:
+      - driver: agent_in.monitored_ap
+        receiver: predictor.analysis_export
+        validate: 'True'
+      - driver: predictor.predict_ap
+        receiver: scoreboard.expected_analysis_export
+        validate: 'True'
+      - driver: agent_out.monitored_ap
+        receiver: scoreboard.actual_analysis_export
+        validate: 'True'

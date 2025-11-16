@@ -1,0 +1,35 @@
+uvmf:
+  util_components:
+    "memaccess_predictor" :
+      type: "predictor"
+      analysis_exports :
+        - name: "analysis_export"
+          type: "memaccess_in_transaction"
+      analysis_ports : 
+        - name: "predict_ap"
+          type: "memaccess_out_transaction"
+  environments:
+    "memaccess" :
+      agents :
+        - name: "agent_in" 
+          type: "memaccess_in"
+          initiator_responder: "RESPONDER"
+        - name: "agent_out" 
+          type: "memaccess_out"
+          initiator_responder: "RESPONDER"
+      analysis_components :
+        - name: "predictor"
+          type: "memaccess_predictor"
+      scoreboards : 
+        - name: "scoreboard"
+          sb_type: "uvmf_in_order_scoreboard"
+          trans_type: "memaccess_out_transaction"
+      tlm_connections :
+        - driver:   "agent_in.monitored_ap"
+          receiver: "predictor.analysis_export"
+        - driver:   "predictor.predict_ap"  
+          receiver: "scoreboard.expected_analysis_export"
+        - driver:   "agent_out.monitored_ap"
+          receiver: "scoreboard.actual_analysis_export" 
+      imports:
+        - name: "lc3_prediction_pkg"

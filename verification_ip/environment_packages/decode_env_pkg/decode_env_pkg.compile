@@ -1,0 +1,18 @@
+needs:
+# pragma uvmf custom needs_additional begin
+# pragma uvmf custom needs_additional end
+  - $UVMF_HOME/uvmf_base_pkg/uvmf_base_pkg.compile
+  - ../../../verification_ip/interface_packages/decode_in_pkg/decode_in_hvl.compile
+  - ../../../verification_ip/interface_packages/decode_out_pkg/decode_out_hvl.compile
+# pragma uvmf custom extra_needs begin
+# pragma uvmf custom extra_needs end
+
+src:
+# pragma uvmf custom src_additional begin
+# pragma uvmf custom src_additional end
+  - decode_env_pkg.sv
+# pragma uvmf custom extra_src begin
+# pragma uvmf custom extra_src end
+# pragma uvmf custom compile_additional begin
+# pragma uvmf custom compile_additional end
+

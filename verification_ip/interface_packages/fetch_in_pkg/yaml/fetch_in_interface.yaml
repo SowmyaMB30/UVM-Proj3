@@ -1,0 +1,37 @@
+uvmf:
+  interfaces:
+    "fetch_in":
+      clock: "clock"
+      reset: "reset"
+      reset_assertion_level: "True"   
+      ports: 
+        - name: "br_taken"   
+          width: "1"        
+          dir: "output" 
+        - name: "taddr"   
+          width: "16"        
+          dir: "output" 
+        - name: "enable_fetch"   
+          width: "1"        
+          dir: "output" 
+        - name: "enable_updatePC"   
+          width: "1"        
+          dir: "output" 
+      transaction_vars:
+        - name: "br_taken"  
+          type: "logic"
+          isrand: "False"
+          iscompare: "False" 
+        - name: "taddr"  
+          type: "logic [15:0]" 
+          isrand: "False"
+          iscompare: "False"
+        - name: "enable_fetch"  
+          type: "logic" 
+          isrand: "False"
+          iscompare: "False"
+        - name: "enable_updatePC"  
+          type: "logic" 
+          isrand: "False"
+          iscompare: "False"
+

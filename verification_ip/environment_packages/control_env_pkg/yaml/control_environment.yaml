@@ -1,0 +1,38 @@
+uvmf:
+  util_components:
+    "controller_predictor" :
+        type: "predictor"
+        analysis_exports :
+            - name: "analysis_export"
+              type: "controller_in_transaction"
+        analysis_ports :
+            - name: "predict_ap"
+              type: "controller_out_transaction"
+  environments:
+    "controller" :
+      agents :
+        - name: "agent_in"
+          type: "controller_in"
+          initiator_responder: "INITIATOR"
+        - name: "agent_out"
+          type: "controller_out"
+          initiator_responder: "INITIATOR"
+      analysis_components :
+        - name: "predictor"
+          type: "controller_predictor"
+      scoreboards : 
+        - name: "scoreboard"
+          sb_type: "uvmf_in_order_scoreboard"
+          trans_type: "controller_out_transaction"
+      tlm_connections :
+        - driver:   "agent_in.monitored_ap"
+          receiver: "predictor.analysis_export"
+        - driver:   "predictor.predict_ap"
+          receiver: "scoreboard.expected_analysis_export"
+        - driver:   "agent_out.monitored_ap"
+          receiver: "scoreboard.actual_analysis_export"
+      imports:
+        - name: "lc3_prediction_pkg"
+
+
+

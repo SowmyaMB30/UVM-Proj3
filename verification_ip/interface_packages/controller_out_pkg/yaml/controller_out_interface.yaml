@@ -1,0 +1,129 @@
+uvmf:
+  interfaces:
+    controller_out:
+      clock: clock
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs: []
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - dir: input
+        name: enable_updatePC
+        reset_value: '''b0'
+        width: '1'
+      - dir: input
+        name: enable_fetch
+        reset_value: '''b0'
+        width: '1'
+      - dir: input
+        name: enable_decode
+        reset_value: '''b0'
+        width: '1'
+      - dir: input
+        name: enable_execute
+        reset_value: '''b0'
+        width: '1'
+      - dir: input
+        name: enable_writeback
+        reset_value: '''b0'
+        width: '1'
+      - dir: input
+        name: br_taken
+        reset_value: '''b0'
+        width: '1'
+      - dir: input
+        name: bypass_alu_1
+        reset_value: '''b0'
+        width: '1'
+      - dir: input
+        name: bypass_alu_2
+        reset_value: '''b0'
+        width: '1'
+      - dir: output
+        name: bypass_mem_1
+        reset_value: '''b0'
+        width: '1'
+      - dir: input
+        name: bypass_mem_2
+        reset_value: '''b0'
+        width: '1'
+      - dir: input
+        name: mem_state
+        reset_value: '''b0'
+        width: '2'
+      reset: reset
+      reset_assertion_level: 'True'
+      transaction_constraints: []
+      transaction_vars:
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: enable_updatePC
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: enable_fetch
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: enable_decode
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: enable_execute
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: enable_writeback
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: br_taken
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: bypass_alu_1
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: bypass_alu_2
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: bypass_mem_1
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: bypass_mem_2
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: mem_state
+        type: bit [1:0]
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

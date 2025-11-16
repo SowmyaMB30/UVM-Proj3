@@ -1,0 +1,49 @@
+uvmf:
+  interfaces:
+    fetch_out:
+      clock: clock
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs: []
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - dir: input
+        name: npc
+        reset_value: '''b0'
+        width: '16'
+      - dir: input
+        name: pc
+        reset_value: '''b0'
+        width: '16'
+      - dir: input
+        name: instrmem_rd
+        reset_value: '''b0'
+        width: '1'
+      reset: reset
+      reset_assertion_level: 'True'
+      transaction_constraints: []
+      transaction_vars:
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: npc
+        type: logic [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: pc
+        type: logic [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: instrmem_rd
+        type: logic
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

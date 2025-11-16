@@ -1,0 +1,7 @@
+needs:
+# pragma uvmf custom needs_additional begin
+# pragma uvmf custom needs_additional end
+  - fetch_out_hvl.compile
+  - fetch_out_hdl.compile
+# pragma uvmf custom compile_additional begin
+# pragma uvmf custom compile_additional end
