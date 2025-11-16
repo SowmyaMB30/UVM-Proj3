@@ -1,0 +1,14 @@
+needs:
+# pragma uvmf custom needs_additional begin
+# pragma uvmf custom needs_additional end
+  - $UVMF_HOME/uvmf_base_pkg/uvmf_base_pkg.compile
+  - ../../../../verification_ip/interface_packages/execute_in_pkg/execute_in.compile
+  - ../../../../verification_ip/interface_packages/execute_out_pkg/execute_out.compile
+  - ../../../../verification_ip/environment_packages/lc3_env_pkg/lc3_env_pkg.compile
+  - ../parameters/lc3_parameters_pkg.compile
+src:
+# pragma uvmf custom src_additional begin
+# pragma uvmf custom src_additional end
+  - lc3_sequences_pkg.sv
+# pragma uvmf custom compile_additional begin
+# pragma uvmf custom compile_additional end
