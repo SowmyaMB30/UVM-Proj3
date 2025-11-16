@@ -36,7 +36,7 @@
 - [ ] `project_benches/lc3/tb/tests/lc3_test_pkg` - Test package
 - [ ] `project_benches/lc3/tb/sequences/lc3_sequence_pkg` - Top-level sequence package
 - [ ] `project_benches/lc3/sim/testlist.yaml` - Test list file (REQUIRED per project requirements)
-- [ ] `project_benches/lc3/rtl` - LC3 RTL location
+- [x] `project_benches/lc3/rtl` - LC3 RTL location
 
 ###### Required Documentation/Deliverables
 - [ ] Simulation transcripts
@@ -123,14 +123,16 @@
 5. Create `project_benches/lc3/sim/testlist.yaml` with test/seed combinations
 
 ###### Phase 4: Implement Tests and Coverage
-1. Create test cases that constrain instruction generation
-2. Extend instruction memory transaction class with constraints
-3. Use factory type override for extended transaction classes
-4. Set up instruction coverage collection
-5. Create test plan document
-6. Run simulations and collect coverage
-7. Merge coverage results
-8. Generate coverage report
+1. Modify Makefile to ensure you include all stages
+   - Add interface package includes on line 75
+2. Create test cases that constrain instruction generation
+3. Extend instruction memory transaction class with constraints
+4. Use factory type override for extended transaction classes
+5. Set up instruction coverage collection
+6. Create test plan document
+7. Run simulations and collect coverage
+8. Merge coverage results
+9. Generate coverage report
 
 ###### Phase 5: Documentation
 1. Create test plan showing coverage groups and coverpoints

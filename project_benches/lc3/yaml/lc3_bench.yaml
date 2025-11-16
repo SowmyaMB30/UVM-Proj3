@@ -7,7 +7,7 @@ uvmf:
       - bfm_name: execute_env_exe_out_agent
         value: PASSIVE
       clock_half_period: 5ns
-      clock_phase_offset: 9ns
+      clock_phase_offset: 21ns
       existing_library_component: 'False'
       interface_params: []
       parameters: []
