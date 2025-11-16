@@ -1,0 +1,106 @@
+uvmf:
+  interfaces:
+    execute_out:
+      clock: clock
+      reset: reset
+      reset_assertion_level: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_typedefs: []
+
+      ports:
+      - dir: input
+        name: W_control_out
+        reset_value: '''b0'
+        width: '2'
+      - dir: input
+        name: alutout
+        reset_value: '''b0'
+        width: '16'
+      - dir: input
+        name: pcout
+        reset_value: '''b0'
+        width: '16'
+      - dir: input
+        name: dr
+        reset_value: '''b0'
+        width: '3'
+      - dir: input
+        name: sr1
+        reset_value: '''b0'
+        width: '3'
+      - dir: input
+        name: sr2
+        reset_value: '''b0'
+        width: '3'
+      - dir: input
+        name: IR_Exec
+        reset_value: '''b0'
+        width: '16'
+      - dir: input
+        name: NZP
+        reset_value: '''b0'
+        width: '3'
+      - dir: input
+        name: M_data
+        reset_value: '''b0'
+        width: '16'
+
+      transaction_constraints: []
+      transaction_vars:
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: W_control_out
+        type: bit [1:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: alutout
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: pcout
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: dr
+        type: bit [2:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: sr1
+        type: bit [2:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: sr2
+        type: bit [2:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: IR_Exec
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: NZP
+        type: bit [2:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: M_data
+        type: bit [15:0]
+        unpacked_dimension: ''
+     
+
+      
