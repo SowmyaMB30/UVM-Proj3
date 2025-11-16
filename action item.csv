@@ -1,0 +1,12 @@
+﻿action items,Owner,time
+stimulus,"Ram, Sowmya",23-Nov
+Coverage model,Rick,27-Nov
+coverage Integration,"Rick, Nivesh",29-Nov
+Memory access(dmem),Ram,23-Nov
+"Imem, fetch",Sowmya,24-Nov
+exe,Rick,18-Nov
+decode,Rick,20-Nov
+WB,Jeffery,26-Nov
+control,Nivesh,23-Nov
+Simulation till coverage success,Ram,29-Nov
+skeleton tb up,Sowmya,
